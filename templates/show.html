@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+  
+    <div class="bg-black text-center  ">
+   <h1 class=" font-bold text-2xl p-4 text-yellow-900"> TODAY GOAL💻</h1>
+
+    </div>
+   <div class=" min-h-screen bg-slate-900">
+
+        <table class="font-bold border-collapse m-10 w-10/12 h-full">
+            <thead>
+                <th  class="border-4 text-center p-4 text-fuchsia-500  text-1xl font-bold">Today Date</th>
+                <th  class="border-4 text-center p-4  text-fuchsia-500 text-1xl font-bold">goal1</th>
+                <th  class="border-4 text-center p-4  text-fuchsia-500 text-1xl font-bold">goal2</th>
+                <th  class="border-4 text-center p-4  text-fuchsia-500 text-1xl font-bold">Update</th>
+              
+             </thead>
+            {% for i in data %}
+
+            <tr class="bg-white even:bg-slate-900 ">
+                <td class="border-2  bg-slate-900  p-4  text-white">{{i.date}}</td>
+                <td class="border-2  bg-slate-900  p-4  text-white">{{i.goal1}}</td>
+                <td class="border-2  bg-slate-900  p-4  text-white">{{i.goal2}}</td>
+
+            <td class="bg-gray-400 border-2 ">
+                    <a href="/edit?date={{i.date}}" class="text-green-900 font-bold " >Edit</a>&nbsp
+                    <a href="/delete?date={{i.date}}" class="text-red-900 font-bold ">Delete</a>
+                </td>
+               
+            </tr>
+            {% endfor %}
+
+
+        </div>
+
+
+
+        <div class="bg-gray-900 text center">
+            <form action="/" method="POST">
+                {% csrf_token %}
+                <button class=" p-4 bg-black font-bold text-white mr-16 mt-8 hover:bg-emerald-600 text-2xl w-66 ml-16 mb-4	rounded">Previous </button>
+    
+               
+            </form> 
+        </div> 
+    
+</body>
+</html>
